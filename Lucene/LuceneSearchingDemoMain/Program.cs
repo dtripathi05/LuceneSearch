@@ -16,9 +16,12 @@ namespace LuceneSearchingDemoMain
                 LuceneSearch.AddUpdateLuceneIndex(InterestsList);
                 Console.WriteLine("\nProvide Your Interest ");
                 List<PointOfInterest> result = LuceneSearch.Search(Console.ReadLine()).ToList();
-                if (result[0] != null)
+                if (result.Count != 0)
                 {
-                    Console.WriteLine($"Name : {result[0].Name}\nType : {result[0].Type}\nDescription : {result[0].Description}");
+                    foreach (var result1 in result)
+                    {
+                        Console.WriteLine($"Name : {result1.Name}\nType : {result1.Type}\nDescription : {result1.Description}");
+                    }
                 }
                 else Console.WriteLine("No Matching Record Found");
                 Console.ReadKey();
